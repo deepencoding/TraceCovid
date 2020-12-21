@@ -5,19 +5,18 @@ import os
 
 #main menu
 def home():
-    print('''#======================================================================================================#
-#   /$$$$$$$$                                            /$$$$$$                      /$$       /$$    #
-#  |__  $$__/                                           /$$__  $$                    |__/      | $$    #
-#     | $$  /$$$$$$  /$$$$$$   /$$$$$$$  /$$$$$$       | $$  \__/  /$$$$$$  /$$    /$$/$$  /$$$$$$$    #
-#     | $$ /$$__  $$|____  $$ /$$_____/ /$$__  $$      | $$       /$$__  $$|  $$  /$$/ $$ /$$__  $$    #
-#     | $$| $$  \__/ /$$$$$$$| $$      | $$$$$$$$      | $$      | $$  \ $$ \  $$/$$/| $$| $$  | $$    #
-#     | $$| $$      /$$__  $$| $$      | $$_____/      | $$    $$| $$  | $$  \  $$$/ | $$| $$  | $$    #
-#     | $$| $$     |  $$$$$$$|  $$$$$$$|  $$$$$$$      |  $$$$$$/|  $$$$$$/   \  $/  | $$|  $$$$$$$    #
-#     |__/|__/      \_______/ \_______/ \_______/       \______/  \______/     \_/   |__/ \_______/    #
-#    ```````````````````````````````````````````````````````````````````````````````````````````````   #
-#======================================================================================================#
-                                                             -MADE BY DEEPANSHU GAUTAM & MANIYA TADHIYAL
-''')
+    print('''				#======================================================================================================#
+				#   /$$$$$$$$                                            /$$$$$$                      /$$       /$$    #
+				#  |__  $$__/                                           /$$__  $$                    |__/      | $$    #
+				#     | $$  /$$$$$$  /$$$$$$   /$$$$$$$  /$$$$$$       | $$  \__/  /$$$$$$  /$$    /$$/$$  /$$$$$$$    #
+				#     | $$ /$$__  $$|____  $$ /$$_____/ /$$__  $$      | $$       /$$__  $$|  $$  /$$/ $$ /$$__  $$    #
+				#     | $$| $$  \__/ /$$$$$$$| $$      | $$$$$$$$      | $$      | $$  \ $$ \  $$/$$/| $$| $$  | $$    #
+				#     | $$| $$      /$$__  $$| $$      | $$_____/      | $$    $$| $$  | $$  \  $$$/ | $$| $$  | $$    #
+				#     | $$| $$     |  $$$$$$$|  $$$$$$$|  $$$$$$$      |  $$$$$$/|  $$$$$$/   \  $/  | $$|  $$$$$$$    #
+				#     |__/|__/      \_______/ \_______/ \_______/       \______/  \______/     \_/   |__/ \_______/    #
+				#    ```````````````````````````````````````````````````````````````````````````````````````````````   #
+				#======================================================================================================#
+									  																							   				-DEVELOPED BY DEEPANSHU GAUTAM & MANIYA TADHIYAL''')
     print('INDIA')
     A=pd.read_sql('SELECT * FROM INDIA;',conn)
     Width=os.get_terminal_size()
@@ -26,13 +25,13 @@ def home():
 
 
     e=input('''
-                        +__________________________________________________+
-                        |MAIN MENU                                         |            ********************
-                        |                                                  |            *  h to home       *
-                        |     1 >> SELECT CITY                             |            *  q to quit       *
-                        |                                                  |            ********************
-                        |     2 >> ADMIN (UPDATE INFO)                     |
-                        +__________________________________________________+
+                				        +__________________________________________________+
+                				        |MAIN MENU                                         |            ********************
+              					        |                                                  |            *  h to home       *
+                    					|     1 >> SELECT CITY                             |            *  q to quit       *
+               					        |                                                  |            ********************
+               					        |     2 >> ADMIN (UPDATE INFO)                     |
+               					        +__________________________________________________+
 
 
 SELECT YOUR ENTRY:''')
@@ -42,12 +41,14 @@ SELECT YOUR ENTRY:''')
         admin()
     elif e=='q':
         print("THANK YOU!!!!!")
+        input()
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
     else:
         print("INVALID INPUT.")
+        input()
         os.system('cls')
         home()
 
@@ -77,8 +78,9 @@ def showData():
 
     elif e=='q':
         print("THANK YOU!!!!!")
+        input()
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
  
@@ -100,6 +102,11 @@ def showData():
         name='Chennai'
         SNO='4'
         e=options(name,table,SNO)
+    else:
+        print("INVALID INPUT.")
+        input()
+        os.system('cls')
+        home()
 
 
 #Options to be displayed
@@ -115,8 +122,9 @@ def options(name,table,SNO):
     
     elif e=='q':
         print("THANK YOU!!!!!")
+        input()
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
     
@@ -128,8 +136,8 @@ def options(name,table,SNO):
         e=hospitals(name,table,SNO)
     else:
         print('INVALID INPUT.')
+        input()
         options(name,table)
-
 
 #Displaying bed prices
 def bedPrices(SNO):
@@ -147,7 +155,12 @@ def bedPrices(SNO):
     if e=='q':
         print("THANK YOU!!!!!")
         quit()
-    elif e=='h':
+    elif e=='h' :
+        os.system('cls')
+        home()
+    else:
+        print("INVALID INPUT.")
+        input()
         os.system('cls')
         home()
     
@@ -168,10 +181,14 @@ def dispCases(SNO):
     if e=='q':
         print("THANK YOU!!!!!")
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
-
+    else:
+        print("INVALID INPUT.")
+        input()
+        os.system('cls')
+        home()
 
 #displaying information about hospitals
 def hospitals(name,table,SNO):
@@ -196,8 +213,9 @@ def hospitals(name,table,SNO):
     
     elif e=='q':
         print("THANK YOU!!!!!")
+        input()
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
     
@@ -217,6 +235,7 @@ def hospitals(name,table,SNO):
          
     else:
         print('INVALID INPUT.')
+        input()
         e=hospitals(name,table,SNO)
 
 
@@ -250,10 +269,14 @@ def oneHosp(disp,table):
     if e=='q':
         print("THANK YOU!!!!!")
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
-
+    else:
+        print("INVALID INPUT.")
+        input()
+        os.system('cls')
+        home()
 
 #for Admin access
 def admin():
@@ -281,8 +304,9 @@ def adminAccess():
     
     elif e=='q':
         print("THANK YOU!!!!!")
+        input()
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
     
@@ -290,6 +314,7 @@ def adminAccess():
  
     else:
         print('INVALID INPUT.')
+        input()
         adminAccess()
 
 
@@ -314,8 +339,9 @@ SELECT CITY:
     
     elif e=='q':
         print("THANK YOU!!!!!")
+        input()
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
     
@@ -331,6 +357,7 @@ SELECT CITY:
         updateCity(table,SNO)
     else:
         print('INVALID INPUT.')
+        input()
         updateData()
 
 
@@ -352,8 +379,9 @@ What to update:
     
     elif e=='q':
         print("THANK YOU!!!!!")
+        input()
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
     
@@ -361,6 +389,7 @@ What to update:
  
     else:
         print('INVALID INPUT.')
+        input()
         updateCity(table)
 
 
@@ -379,8 +408,9 @@ def updateHosp(table):
     
     elif e=='q':
         print("THANK YOU!!!!!")
+        input()
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
     
@@ -394,6 +424,7 @@ def updateHosp(table):
         updateDetails(name[0],table)
     else:
         print('INVALID INPUT')
+        input()
         updateHosp(table)
 
 
@@ -418,8 +449,9 @@ WHAT TO UPDATE:
     
     elif e=='q':
         print("THANK YOU!!!!!")
+        input()
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
     
@@ -427,6 +459,7 @@ WHAT TO UPDATE:
  
     else:
         print('INVALID INPUT')
+        input()
         updateHosp(table)
 
 
@@ -558,8 +591,9 @@ UPDATE BED PRICES:
     
     elif e=='q':
         print("THANK YOU!!!!!")
+        input()
         quit()
-    elif e=='h':
+    elif e=='h' :
         os.system('cls')
         home()
     
@@ -610,6 +644,7 @@ UPDATE BED PRICES:
 
     else:
         print('INVALID INPUT.')
+        input()
         updateBedPrices()
 
 #change data of no. of cases
@@ -644,6 +679,7 @@ def updateCases(table,SNO):
     
     elif e=='q':
         print("THANK YOU!!!!!")
+        input()
         quit()
     elif e=='h':
         os.system('cls')
@@ -825,4 +861,4 @@ home()
 c.close()
 
 
-#MADE BY DEEPANSHU AND MANIYA OF XII-A
+#DEVELOPED BY DEEPANSHU AND MANIYA OF XII-A
