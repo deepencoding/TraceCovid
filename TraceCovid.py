@@ -146,7 +146,9 @@ def bedPrices(SNO):
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
-    e=input('''********************
+    e=input('''
+
+********************
 *  h to home       *
 *  q to quit       *
 ********************
@@ -173,7 +175,9 @@ def dispCases(SNO):
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
-    e=input('''********************
+    e=input('''
+
+********************
 *  h to home       *
 *  q to quit       *
 ********************
@@ -199,6 +203,7 @@ def hospitals(name,table,SNO):
     print(A)
 
     e=input('''
+
 ********************
 *  h to home       *
 *  q to quit       *
@@ -247,7 +252,9 @@ def allHosp(table):
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
-    e=input('''********************
+    e=input('''
+
+********************
 *  h to home       *
 *  q to quit       *
 ********************
@@ -261,7 +268,9 @@ def oneHosp(disp,table):
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
-    e=input('''********************
+    e=input('''
+
+********************
 *  h to home       *
 *  q to quit       *
 ********************
