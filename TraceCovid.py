@@ -16,7 +16,7 @@ def home():
 				#     |__/|__/      \_______/ \_______/ \_______/       \______/  \______/     \_/   |__/ \_______/    #
 				#    ```````````````````````````````````````````````````````````````````````````````````````````````   #
 				#======================================================================================================#
-									  																							   				-DEVELOPED BY DEEPANSHU GAUTAM & MANIYA TADHIYAL''')
+''')
     print('INDIA')
     A=pd.read_sql('SELECT * FROM INDIA;',conn)
     Width=os.get_terminal_size()
@@ -25,13 +25,13 @@ def home():
 
 
     e=input('''
-                				        +__________________________________________________+
-                				        |MAIN MENU                                         |            ********************
-              					        |                                                  |            *  h to home       *
-                    					|     1 >> SELECT CITY                             |            *  q to quit       *
-               					        |                                                  |            ********************
-               					        |     2 >> ADMIN (UPDATE INFO)                     |
-               					        +__________________________________________________+
+                        +__________________________________________________+
+                        |MAIN MENU                                         |            ********************
+                        |                                                  |            *  h to home       *
+                        |     1 >> SELECT CITY                             |            *  q to quit       *
+                        |                                                  |            ********************
+                        |     2 >> ADMIN (UPDATE INFO)                     |
+                        +__________________________________________________+
 
 
 SELECT YOUR ENTRY:''')
@@ -41,14 +41,12 @@ SELECT YOUR ENTRY:''')
         admin()
     elif e=='q':
         print("THANK YOU!!!!!")
-        input()
         quit()
-    elif e=='h' :
+    elif e=='h':
         os.system('cls')
         home()
     else:
         print("INVALID INPUT.")
-        input()
         os.system('cls')
         home()
 
@@ -78,9 +76,8 @@ def showData():
 
     elif e=='q':
         print("THANK YOU!!!!!")
-        input()
         quit()
-    elif e=='h' :
+    elif e=='h':
         os.system('cls')
         home()
  
@@ -102,11 +99,6 @@ def showData():
         name='Chennai'
         SNO='4'
         e=options(name,table,SNO)
-    else:
-        print("INVALID INPUT.")
-        input()
-        os.system('cls')
-        home()
 
 
 #Options to be displayed
@@ -122,9 +114,8 @@ def options(name,table,SNO):
     
     elif e=='q':
         print("THANK YOU!!!!!")
-        input()
         quit()
-    elif e=='h' :
+    elif e=='h':
         os.system('cls')
         home()
     
@@ -136,8 +127,8 @@ def options(name,table,SNO):
         e=hospitals(name,table,SNO)
     else:
         print('INVALID INPUT.')
-        input()
         options(name,table)
+
 
 #Displaying bed prices
 def bedPrices(SNO):
@@ -146,9 +137,7 @@ def bedPrices(SNO):
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
-    e=input('''
-
-********************
+    e=input('''********************
 *  h to home       *
 *  q to quit       *
 ********************
@@ -157,12 +146,7 @@ def bedPrices(SNO):
     if e=='q':
         print("THANK YOU!!!!!")
         quit()
-    elif e=='h' :
-        os.system('cls')
-        home()
-    else:
-        print("INVALID INPUT.")
-        input()
+    elif e=='h':
         os.system('cls')
         home()
     
@@ -175,9 +159,7 @@ def dispCases(SNO):
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
-    e=input('''
-
-********************
+    e=input('''********************
 *  h to home       *
 *  q to quit       *
 ********************
@@ -185,14 +167,10 @@ def dispCases(SNO):
     if e=='q':
         print("THANK YOU!!!!!")
         quit()
-    elif e=='h' :
+    elif e=='h':
         os.system('cls')
         home()
-    else:
-        print("INVALID INPUT.")
-        input()
-        os.system('cls')
-        home()
+
 
 #displaying information about hospitals
 def hospitals(name,table,SNO):
@@ -200,92 +178,29 @@ def hospitals(name,table,SNO):
     A=pd.read_sql('SELECT * FROM {}'.format(table),conn)
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
-    print(A)
+    print(A.to_string(index=False))
 
     e=input('''
-
 ********************
 *  h to home       *
 *  q to quit       *
 ********************
 :''')
-    if e=='*':
-        e=allHosp(table)
+    
 
-    elif e=='1':
-        name=c.execute('select NAME_OF_HOSPITAL from {};'.format(table)).fetchone()
-        oneHosp(name,table)
+    
     
     elif e=='q':
         print("THANK YOU!!!!!")
-        input()
         quit()
-    elif e=='h' :
+    elif e=='h':
         os.system('cls')
         home()
-    
-        
- 
-    elif e=='2':
-        name=c.execute('select NAME_OF_HOSPITAL from {};'.format(table)).fetchone()
-        oneHosp(name,table)
-
-    elif e=='3':
-        name=c.execute('select NAME_OF_HOSPITAL from {};'.format(table)).fetchone()
-        oneHosp(name,table)
-        
-    elif e=='4':
-        name=c.execute('select NAME_OF_HOSPITAL from {};'.format(table)).fetchone()
-        oneHosp(name,table)
          
     else:
         print('INVALID INPUT.')
-        input()
         e=hospitals(name,table,SNO)
 
-
-##displaying information for all hospitals
-def allHosp(table):
-    
-    A=pd.read_sql('SELECT * FROM {};'.format(table),conn)
-
-    Width=os.get_terminal_size()
-    pd.set_option('display.width',Width[0])
-    print(A.to_string(index=False))
-    e=input('''
-
-********************
-*  h to home       *
-*  q to quit       *
-********************
-:''')
-
-#displaying information per hospital
-def oneHosp(disp,table):
-    print('print info of {}'.format(disp))
-    A=pd.read_sql("SELECT * FROM {} WHERE SNO=1;".format(table),conn)
-
-    Width=os.get_terminal_size()
-    pd.set_option('display.width',Width[0])
-    print(A.to_string(index=False))
-    e=input('''
-
-********************
-*  h to home       *
-*  q to quit       *
-********************
-:''')
-    if e=='q':
-        print("THANK YOU!!!!!")
-        quit()
-    elif e=='h' :
-        os.system('cls')
-        home()
-    else:
-        print("INVALID INPUT.")
-        input()
-        os.system('cls')
-        home()
 
 #for Admin access
 def admin():
@@ -313,9 +228,8 @@ def adminAccess():
     
     elif e=='q':
         print("THANK YOU!!!!!")
-        input()
         quit()
-    elif e=='h' :
+    elif e=='h':
         os.system('cls')
         home()
     
@@ -323,7 +237,6 @@ def adminAccess():
  
     else:
         print('INVALID INPUT.')
-        input()
         adminAccess()
 
 
@@ -348,9 +261,8 @@ SELECT CITY:
     
     elif e=='q':
         print("THANK YOU!!!!!")
-        input()
         quit()
-    elif e=='h' :
+    elif e=='h':
         os.system('cls')
         home()
     
@@ -366,7 +278,6 @@ SELECT CITY:
         updateCity(table,SNO)
     else:
         print('INVALID INPUT.')
-        input()
         updateData()
 
 
@@ -388,9 +299,8 @@ What to update:
     
     elif e=='q':
         print("THANK YOU!!!!!")
-        input()
         quit()
-    elif e=='h' :
+    elif e=='h':
         os.system('cls')
         home()
     
@@ -398,7 +308,6 @@ What to update:
  
     else:
         print('INVALID INPUT.')
-        input()
         updateCity(table)
 
 
@@ -417,9 +326,8 @@ def updateHosp(table):
     
     elif e=='q':
         print("THANK YOU!!!!!")
-        input()
         quit()
-    elif e=='h' :
+    elif e=='h':
         os.system('cls')
         home()
     
@@ -433,7 +341,6 @@ def updateHosp(table):
         updateDetails(name[0],table)
     else:
         print('INVALID INPUT')
-        input()
         updateHosp(table)
 
 
@@ -458,9 +365,8 @@ WHAT TO UPDATE:
     
     elif e=='q':
         print("THANK YOU!!!!!")
-        input()
         quit()
-    elif e=='h' :
+    elif e=='h':
         os.system('cls')
         home()
     
@@ -468,25 +374,24 @@ WHAT TO UPDATE:
  
     else:
         print('INVALID INPUT')
-        input()
         updateHosp(table)
 
 
 #change no. of vacant beds per hospital
 def updateVacantBeds(name,table):
     print('CURRENT VALUE:')
-    A=pd.read_sql('SELECT VACANT_BEDS from {} WHERE NAME_OF_HOSPITAL={};'.format(table,name),conn)
+    A=pd.read_sql('SELECT VACANT_BEDS from {} WHERE NAME_OF_HOSPITAL="{}";'.format(table,name),conn)
 
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
  
-    n=int(input('ENTER NEW VALUE:'))
-    c.execute('UPDATE {} set VACANT_BEDS = {} WHERE NAME_OF_HOSPITAL={};'.format(table,n,name))
+    n=int(input('''ENTER NEW VALUE:'''))
+    c.execute('UPDATE {} set VACANT_BEDS = {} WHERE NAME_OF_HOSPITAL="{}";'.format(table,n,name))
     conn.commit()
     print('CHANGES SAVED.')
     
-    A=pd.read_sql('SELECT VACANT_BEDS from {} WHERE NAME_OF_HOSPITAL={};'.format(table,name),conn)
+    A=pd.read_sql('SELECT VACANT_BEDS from {} WHERE NAME_OF_HOSPITAL="{}";'.format(table,name),conn)
 
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
@@ -498,47 +403,47 @@ def updateVacantBeds(name,table):
 #change data of recovery rate per hospital
 def updateRecoveryRate(name,table):
     print('CURRENT VALUE:')
-    A=pd.read_sql('SELECT RECOVERY_RATE from {} WHERE NAME_OF_HOSPITAL={};'.format(table,name),conn)
+    A=pd.read_sql('SELECT RECOVERY_RATE from {} WHERE NAME_OF_HOSPITAL="{}";'.format(table,name),conn)
 
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
  
     n=int(input('ENTER NEW VALUE:'))
-    c.execute('UPDATE {} set RECOVERY_RATE = {} WHERE NAME_OF_HOSPITAL={};'.format(table,n,name))
+    c.execute('UPDATE {} set RECOVERY_RATE = {} WHERE NAME_OF_HOSPITAL="{}";'.format(table,n,name))
     conn.commit()
     print('CHANGES SAVED.')
-    
-    A=pd.read_sql('SELECT TOTAL_DEATHS from {} WHERE NAME_OF_HOSPITAL={};'.format(table,name),conn)
+
+    A=pd.read_sql('SELECT TOTAL_DEATHS from {} WHERE NAME_OF_HOSPITAL="{}";'.format(table,name),conn)
 
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
- 
+
     adminAccess()
 
 
 #change data of total deaths per hospital
 def updateTotalDeaths(name,table):
     print('CURRENT VALUE:')
-    
-    A=pd.read_sql('SELECT TOTAL_DEATHS from CASES WHERE NAME_OF_HOSPITAL={};'.format(name),conn)
+
+    A=pd.read_sql('SELECT TOTAL_DEATHS from CASES WHERE NAME_OF_HOSPITAL="{}";'.format(name),conn)
 
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
- 
+
     n=int(input('ENTER NEW VALUE:'))
-    c.execute('UPDATE {} set TOTAL_DEATHS = {} WHERE NAME_OF_HOSPITAL={};'.format(table,n,name))
+    c.execute('UPDATE {} set TOTAL_DEATHS = {} WHERE NAME_OF_HOSPITAL="{}";'.format(table,n,name))
     conn.commit()
     print('CHANGES SAVED.')
-    
-    A=pd.read_sql('SELECT TOTAL_DEATHS from {} WHERE NAME_OF_HOSPITAL={};'.format(table,name),conn)
+
+    A=pd.read_sql('SELECT TOTAL_DEATHS from {} WHERE NAME_OF_HOSPITAL="{}";'.format(table,name),conn)
 
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
- 
+
     adminAccess()
 
 
@@ -546,23 +451,23 @@ def updateTotalDeaths(name,table):
 def updateTotalBeds(name,table):
     print('CURRENT VALUE:')
     
-    A=pd.read_sql('SELECT TOTAL_BEDS from {} WHERE NAME_OF_HOSPITAL={};'.format(table,name),conn)
+    A=pd.read_sql('SELECT TOTAL_BEDS from {} WHERE NAME_OF_HOSPITAL="{}";'.format(table,name),conn)
 
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
- 
+
     n=int(input('ENTER NEW VALUE:'))
-    c.execute('UPDATE {} set TOTAL_BEDS = {} WHERE NAME_OF_HOSPITAL={};'.format(table,n,name))
+    c.execute('UPDATE {} set TOTAL_BEDS = {} WHERE NAME_OF_HOSPITAL="{}";'.format(table,n,name))
     conn.commit()
     print('CHANGES SAVED.')
     
-    A=pd.read_sql('SELECT TOTAL_BEDS from {} WHERE NAME_OF_HOSPITAL={};'.format(table,name),conn)
+    A=pd.read_sql('SELECT TOTAL_BEDS from {} WHERE NAME_OF_HOSPITAL="{}";'.format(table,name),conn)
 
     Width=os.get_terminal_size()
     pd.set_option('display.width',Width[0])
     print(A.to_string(index=False))
- 
+
     adminAccess()
 
 #change data of bed prices per city
@@ -578,31 +483,30 @@ UPDATE BED PRICES:
 :''')
     if e=='1':
         print('CURRENT VALUE:')
-        
-        A=pd.read_sql('SELECT ISOLATION_BEDS from PRICE WHERE SNO={};'.format(SNO),conn)
+
+        A=pd.read_sql('SELECT ISOLATION_BEDS from PRICES WHERE SNO={};'.format(SNO),conn)
 
         Width=os.get_terminal_size()
         pd.set_option('display.width',Width[0])
         print(A.to_string(index=False))
- 
+
         n=int(input('ENTER NEW VALUE:'))
         c.execute('UPDATE PRICE set ISOLATION_BEDS = {} WHERE SNO={};'.format(n,SNO))
         conn.commit()
         print('CHANGES SAVED.')
-        
-        A=pd.read_sql('SELECT ISOLATION_BEDS from PRICE WHERE SNO={};'.format(SNO),conn)
+
+        A=pd.read_sql('SELECT ISOLATION_BEDS from PRICES WHERE SNO={};'.format(SNO),conn)
 
         Width=os.get_terminal_size()
         pd.set_option('display.width',Width[0])
         print(A.to_string(index=False))
  
         adminAccess()
-    
+
     elif e=='q':
         print("THANK YOU!!!!!")
-        input()
         quit()
-    elif e=='h' :
+    elif e=='h':
         os.system('cls')
         home()
     
@@ -611,7 +515,7 @@ UPDATE BED PRICES:
     elif e=='2':
         print('CURRENT VALUE:')
         
-        A=pd.read_sql('SELECT ICU_BEDS_WITHOUT_VENTILATOR from PRICE WHERE SNO={};'.format(SNO),conn)
+        A=pd.read_sql('SELECT ICU_BEDS_WITHOUT_VENTILATOR from PRICES WHERE SNO={};'.format(SNO),conn)
 
         Width=os.get_terminal_size()
         pd.set_option('display.width',Width[0])
@@ -622,7 +526,7 @@ UPDATE BED PRICES:
         conn.commit()
         print('CHANGES SAVED.')
         
-        A=pd.read_sql('SELECT ICU_BEDS_WITHOUT_VENTILATOR from PRICE WHERE SNO={};'.format(SNO),conn)
+        A=pd.read_sql('SELECT ICU_BEDS_WITHOUT_VENTILATOR from PRICES WHERE SNO={};'.format(SNO),conn)
 
         Width=os.get_terminal_size()
         pd.set_option('display.width',Width[0])
@@ -632,14 +536,14 @@ UPDATE BED PRICES:
     elif e=='3':
         print('CURRENT VALUE:')
         
-        A=pd.read_sql('SELECT ICU_BEDS_WITH_VENTILATOR from PRICE WHERE SNO={};'.format(SNO),conn)
+        A=pd.read_sql('SELECT ICU_BEDS_WITH_VENTILATOR from PRICES WHERE SNO={};'.format(SNO),conn)
 
         Width=os.get_terminal_size()
         pd.set_option('display.width',Width[0])
         print(A.to_string(index=False))
  
         n=int(input('ENTER NEW VALUE:'))
-        c.execute('UPDATE PRICE set ICU_BEDS_WITH_VENTILATOR = {} WHERE SNO={};'.format(n,SNO))
+        c.execute('UPDATE PRICES set ICU_BEDS_WITH_VENTILATOR = {} WHERE SNO={};'.format(n,SNO))
         conn.commit()
         print('CHANGES SAVED.')
         
@@ -653,7 +557,6 @@ UPDATE BED PRICES:
 
     else:
         print('INVALID INPUT.')
-        input()
         updateBedPrices()
 
 #change data of no. of cases
@@ -688,7 +591,6 @@ def updateCases(table,SNO):
     
     elif e=='q':
         print("THANK YOU!!!!!")
-        input()
         quit()
     elif e=='h':
         os.system('cls')
@@ -718,6 +620,7 @@ def updateCases(table,SNO):
  
         adminAccess()
     elif e=='3':
+    	
         print('CURRENT VALUE:')
         
         A=pd.read_sql('SELECT DEATHS from CASES WHERE SNO={};'.format(SNO),conn)
@@ -725,7 +628,7 @@ def updateCases(table,SNO):
         Width=os.get_terminal_size()
         pd.set_option('display.width',Width[0])
         print(A.to_string(index=False))
- 
+
         n=int(input('ENTER NEW VALUE:'))
         c.execute('UPDATE CASES set DEATHS = {} WHERE SNO={};'.format(n,SNO))
         conn.commit()
@@ -870,4 +773,4 @@ home()
 c.close()
 
 
-#DEVELOPED BY DEEPANSHU AND MANIYA OF XII-A
+#MADE BY DEEPANSHU AND MANIYA OF XII-A
